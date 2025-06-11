@@ -1,6 +1,6 @@
 name: worktracker
 description: "WorkTracker: A simple and professional work activity tracker for teams."
-publish_to: 'none'
+publish_to: "none"
 version: 1.0.0+1
 
 environment:
@@ -50,3 +50,29 @@ dev_dependencies:
 
 flutter:
   uses-material-design: true
+  assets:
+    - assets/images/
+    - assets/icons/
+    - assets/logos/
+    - assets/fonts/
+  fonts:
+    - family: TT Interphases
+      fonts:
+        - asset: assets/fonts/InterphasesProThin.ttf
+          weight: 100
+        - asset: assets/fonts/InterphasesProExtraLight.ttf
+          weight: 200
+        - asset: assets/fonts/InterphasesProLight.ttf
+          weight: 300
+        - asset: assets/fonts/InterphasesProRegular.ttf
+          weight: 400
+        - asset: assets/fonts/InterphasesProMedium.ttf
+          weight: 500
+        - asset: assets/fonts/InterphasesProDemiBold.ttf
+          weight: 600
+        - asset: assets/fonts/InterphasesProBold.ttf
+          weight: 700
+        - asset: assets/fonts/InterphasesProExtraBold.ttf
+          weight: 800
+        - asset: assets/fonts/InterphasesProBlack.ttf
+          weight: 900
