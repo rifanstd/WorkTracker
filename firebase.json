@@ -1,0 +1,22 @@
+{
+  "flutter": {
+    "platforms": {
+      "android": {
+        "default": {
+          "projectId": "worktracker-e3d83",
+          "appId": "1:512933443685:android:f9e395f835ded3858c2e8c",
+          "fileOutput": "android/app/google-services.json"
+        }
+      },
+      "dart": {
+        "lib/firebase_options.dart": {
+          "projectId": "worktracker-e3d83",
+          "configurations": {
+            "android": "1:512933443685:android:f9e395f835ded3858c2e8c",
+            "ios": "1:512933443685:ios:c1112abff93217998c2e8c"
+          }
+        }
+      }
+    }
+  }
+}
