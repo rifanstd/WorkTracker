@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "512933443685",
+    "project_id": "worktracker-e3d83",
+    "storage_bucket": "worktracker-e3d83.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:512933443685:android:f9e395f835ded3858c2e8c",
+        "android_client_info": {
+          "package_name": "com.rifanstudio.worktracker"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBrVYO07suHyxtLWWDMxqC0ieMr3OBNDb8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
