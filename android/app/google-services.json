@@ -12,7 +12,20 @@
           "package_name": "com.rifanstudio.worktracker"
         }
       },
-      "oauth_client": [],
+      "oauth_client": [
+        {
+          "client_id": "512933443685-mi6j640669uvv7is9e0dtheicpfru151.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.rifanstudio.worktracker",
+            "certificate_hash": "51f0171469b4236dbb239077fcd2f683899cd215"
+          }
+        },
+        {
+          "client_id": "512933443685-4o40tsqtme4avjpqrpbn09t48od3lq0s.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
       "api_key": [
         {
           "current_key": "AIzaSyBrVYO07suHyxtLWWDMxqC0ieMr3OBNDb8"
@@ -20,7 +33,19 @@
       ],
       "services": {
         "appinvite_service": {
-          "other_platform_oauth_client": []
+          "other_platform_oauth_client": [
+            {
+              "client_id": "512933443685-4o40tsqtme4avjpqrpbn09t48od3lq0s.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "512933443685-t4p5sg1v17j0aki6vpm64eff451ha5hr.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.rifanstudio.worktracker"
+              }
+            }
+          ]
         }
       }
     }
