@@ -5,7 +5,7 @@ import 'package:worktracker/core/utils/logger.dart';
 class StorageService {
   final FirebaseStorage _storage;
 
-  StorageService(this._storage);
+  StorageService({required FirebaseStorage storage}) : _storage = storage;
 
   Future<String> uploadFile({
     required String path,

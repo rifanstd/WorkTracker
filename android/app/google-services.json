@@ -14,6 +14,14 @@
       },
       "oauth_client": [
         {
+          "client_id": "512933443685-0s577kne0el4m28ehr7uv269n8crs768.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.rifanstudio.worktracker",
+            "certificate_hash": "71d272b6590cb26de4f90fad7c483624a420fa04"
+          }
+        },
+        {
           "client_id": "512933443685-mi6j640669uvv7is9e0dtheicpfru151.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {
