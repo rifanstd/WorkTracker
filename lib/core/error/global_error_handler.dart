@@ -1,5 +1,5 @@
 import 'package:flutter/foundation.dart';
-import 'package:worktracker/core/utils/logger.dart';
+import 'package:worktracker/core/utils/logging/logger.dart';
 
 class GlobalErrorHandler {
   static void initialize() {

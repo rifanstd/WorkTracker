@@ -1,6 +1,6 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:google_sign_in/google_sign_in.dart';
-import 'package:worktracker/core/utils/logger.dart';
+import 'package:worktracker/core/utils/logging/logger.dart';
 
 class AuthService {
   final FirebaseAuth firebaseAuth;
@@ -30,7 +30,8 @@ class AuthService {
         idToken: googleAuth.idToken,
       );
 
-      final userCredential = await firebaseAuth.signInWithCredential(credential);
+      final userCredential =
+          await firebaseAuth.signInWithCredential(credential);
 
       AppLogger.info(
         '[AUTH SERVICE] Google Sign-In successful: UID => ${userCredential.user?.uid}',
@@ -57,7 +58,8 @@ class AuthService {
   Future<User?> getSignedInUser() async {
     try {
       if (currentUser != null) {
-        AppLogger.info('[AUTH SERVICE] Signed-in user: UID => ${currentUser?.uid}');
+        AppLogger.info(
+            '[AUTH SERVICE] Signed-in user: UID => ${currentUser?.uid}');
       } else {
         AppLogger.warn('[AUTH SERVICE] No user currently signed in');
       }

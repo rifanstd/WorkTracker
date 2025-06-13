@@ -27,11 +27,15 @@ void main() {
   runZonedGuarded(
     () async {
       WidgetsFlutterBinding.ensureInitialized();
-      await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform);
+
+      await Firebase.initializeApp(
+        options: DefaultFirebaseOptions.currentPlatform,
+      );
       await sl.initDependencies();
-      configureStatusBar();
 
       GlobalErrorHandler.initialize();
+
+      configureStatusBar();
       runApp(const WorkTrackerApp());
     },
     GlobalErrorHandler.handleUncaught,

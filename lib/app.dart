@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:worktracker/core/di/injection_container.dart';
 import 'package:worktracker/core/routes/app_router.dart';
+import 'package:worktracker/core/utils/constants/strings.dart';
+import 'package:worktracker/core/utils/theme/theme.dart';
 import 'package:worktracker/features/auth/presentation/bloc/auth_bloc.dart';
 import 'package:worktracker/features/auth/presentation/bloc/auth_event.dart';
 
@@ -12,12 +14,15 @@ class WorkTrackerApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MultiBlocProvider(
       providers: [
-        BlocProvider<AuthBloc>(create: (_) => sl<AuthBloc>()..add(const AuthCheckRequested())),
+        BlocProvider<AuthBloc>(
+            create: (_) => sl<AuthBloc>()..add(const AuthCheckRequested())),
       ],
       child: MaterialApp.router(
         debugShowCheckedModeBanner: false,
-        themeMode: ThemeMode.light,
         routerConfig: appRouter,
+        title: AppStrings.appName,
+        theme: AppTheme.lightTheme,
+        themeMode: ThemeMode.light,
       ),
     );
   }

@@ -1,5 +1,5 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:worktracker/core/utils/logger.dart';
+import 'package:worktracker/core/utils/logging/logger.dart';
 import 'package:worktracker/features/auth/domain/repositories/auth_repository.dart';
 import 'package:worktracker/features/auth/presentation/bloc/auth_event.dart';
 import 'package:worktracker/features/auth/presentation/bloc/auth_state.dart';
@@ -12,7 +12,10 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
     on<AuthSignInWithGoogle>(_onAuthSignInWithGoogle);
   }
 
-  Future<void> _onAuthChecRequested(AuthCheckRequested event, Emitter<AuthState> emit) async {
+  Future<void> _onAuthChecRequested(
+      AuthCheckRequested event, Emitter<AuthState> emit) async {
+    await Future.delayed(const Duration(seconds: 2), () {});
+
     emit(AuthLoading());
     try {
       AppLogger.info('[AUTH BLOC] AuthCheckRequested');
@@ -30,7 +33,8 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
     }
   }
 
-  Future<void> _onAuthSignInWithGoogle(AuthSignInWithGoogle event, Emitter<AuthState> emit) async {
+  Future<void> _onAuthSignInWithGoogle(
+      AuthSignInWithGoogle event, Emitter<AuthState> emit) async {
     emit(AuthLoading());
     try {
       AppLogger.info('[AUTH BLOC] SignInWithGoogle requested');

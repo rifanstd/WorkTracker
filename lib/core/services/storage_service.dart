@@ -1,6 +1,6 @@
 import 'dart:io';
 import 'package:firebase_storage/firebase_storage.dart';
-import 'package:worktracker/core/utils/logger.dart';
+import 'package:worktracker/core/utils/logging/logger.dart';
 
 class StorageService {
   final FirebaseStorage _storage;

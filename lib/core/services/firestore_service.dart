@@ -1,5 +1,5 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:worktracker/core/utils/logger.dart';
+import 'package:worktracker/core/utils/logging/logger.dart';
 
 class FirestoreService {
   final FirebaseFirestore _firestore;
