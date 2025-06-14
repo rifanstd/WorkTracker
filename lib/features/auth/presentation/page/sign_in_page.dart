@@ -32,7 +32,6 @@ class SignInPage extends StatelessWidget {
             child: Padding(
               padding: const EdgeInsets.all(16),
               child: Column(
-                spacing: 8,
                 mainAxisAlignment: MainAxisAlignment.end,
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
@@ -40,6 +39,7 @@ class SignInPage extends StatelessWidget {
                     AppStrings.appName,
                     style: Theme.of(context).textTheme.headlineLarge,
                   ),
+                  const SizedBox(height: 8),
                   Text(
                     'Worktracker membantumu tetap fokus dan terorganisir. Yuk mulai hari ini dengan langkah yang tepat!',
                     style: Theme.of(context).textTheme.bodyLarge,
@@ -47,12 +47,11 @@ class SignInPage extends StatelessWidget {
                   const SizedBox(height: 32),
                   buildGoogleSignInButton(
                     context: context,
-                    onPressed: () => context
-                        .read<AuthBloc>()
-                        .add(const AuthSignInWithGoogle()),
+                    onPressed: () => context.read<AuthBloc>().add(const AuthSignInWithGoogle()),
                     imagePath: AppImages.google,
                     title: 'Sign In with Google',
                   ),
+                  const SizedBox(height: 8),
                   buildGoogleSignInButton(
                     context: context,
                     onPressed: () {},

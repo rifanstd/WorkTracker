@@ -5,7 +5,8 @@ import 'package:worktracker/core/routes/app_router.dart';
 import 'package:worktracker/core/utils/constants/strings.dart';
 import 'package:worktracker/core/utils/theme/theme.dart';
 import 'package:worktracker/features/auth/presentation/bloc/auth_bloc.dart';
-import 'package:worktracker/features/auth/presentation/bloc/auth_event.dart';
+import 'package:worktracker/shared/blocs/connectivity_bloc/connectivity_bloc.dart';
+import 'package:worktracker/shared/widgets/connectivity_listener_widget.dart';
 
 class WorkTrackerApp extends StatelessWidget {
   const WorkTrackerApp({super.key});
@@ -15,7 +16,11 @@ class WorkTrackerApp extends StatelessWidget {
     return MultiBlocProvider(
       providers: [
         BlocProvider<AuthBloc>(
-            create: (_) => sl<AuthBloc>()..add(const AuthCheckRequested())),
+          create: (_) => sl<AuthBloc>(),
+        ),
+        BlocProvider<ConnectivityBloc>(
+          create: (_) => sl<ConnectivityBloc>(),
+        ),
       ],
       child: MaterialApp.router(
         debugShowCheckedModeBanner: false,
@@ -23,6 +28,7 @@ class WorkTrackerApp extends StatelessWidget {
         title: AppStrings.appName,
         theme: AppTheme.lightTheme,
         themeMode: ThemeMode.light,
+        builder: (context, child) => ConnectivityListenerWidget(child: child!),
       ),
     );
   }

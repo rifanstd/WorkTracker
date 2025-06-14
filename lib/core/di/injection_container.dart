@@ -9,10 +9,14 @@ import 'package:worktracker/core/services/firestore_service.dart';
 import 'package:worktracker/core/services/remote_config_service.dart';
 import 'package:worktracker/core/services/storage_service.dart';
 import 'package:worktracker/features/auth/auth_injection.dart';
+import 'package:worktracker/shared/blocs/connectivity_bloc/connectivity_bloc.dart';
 
 final sl = GetIt.instance;
 
 Future<void> initDependencies() async {
+  // Connection Bloc
+  sl.registerLazySingleton<ConnectivityBloc>(ConnectivityBloc.new);
+
   // Firebase core services
   sl.registerLazySingleton<FirebaseAuth>(() => FirebaseAuth.instance);
   sl.registerLazySingleton<FirebaseFirestore>(() => FirebaseFirestore.instance);
