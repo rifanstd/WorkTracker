@@ -1,6 +1,6 @@
 import 'package:worktracker/core/services/auth_service.dart';
-import 'package:worktracker/features/auth/domain/entities/user_entity.dart';
 import 'package:worktracker/features/auth/domain/repositories/auth_repository.dart';
+import 'package:worktracker/shared/entities/user_entity.dart';
 
 class AuthRepositoryImpl implements AuthRepository {
   final AuthService authService;
@@ -27,20 +27,5 @@ class AuthRepositoryImpl implements AuthRepository {
   @override
   Future<void> signOut() async {
     await authService.signOut();
-  }
-
-  @override
-  Future<UserEntity?> getSignedInUser() async {
-    final user = await authService.getSignedInUser();
-    if (user == null) {
-      return null;
-    }
-
-    return UserEntity(
-      uid: user.uid,
-      email: user.email ?? '',
-      name: user.displayName ?? '',
-      photoUrl: user.photoURL ?? '',
-    );
   }
 }
