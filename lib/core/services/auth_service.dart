@@ -46,7 +46,6 @@ class AuthService {
   Future<void> signOut() async {
     try {
       await googleSignIn.signOut();
-      await googleSignIn.disconnect();
       await firebaseAuth.signOut();
       AppLogger.info('[AUTH SERVICE] User signed out');
     } catch (e, stack) {
