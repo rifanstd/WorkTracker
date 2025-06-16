@@ -5,14 +5,18 @@ import 'package:worktracker/features/auth/domain/usecases/sign_in_with_google.da
 import 'package:worktracker/features/auth/domain/usecases/sign_out.dart';
 import 'package:worktracker/features/auth/presentation/bloc/auth_bloc.dart';
 
-Future<void> initAuthDependencies() async {
-  // Repository
-  sl.registerLazySingleton<AuthRepository>(() => AuthRepositoryImpl(authService: sl()));
+class AuthInjection {
+  AuthInjection._();
 
-  // Bloc
-  sl.registerFactory<AuthBloc>(() => AuthBloc(signInWithGoogle: sl(), signOut: sl()));
+  static Future<void> init() async {
+    // Repository
+    sl.registerLazySingleton<AuthRepository>(() => AuthRepositoryImpl(authService: sl()));
 
-  // Usecases
-  sl.registerLazySingleton(() => SignInWithGoogle(authRepository: sl<AuthRepository>()));
-  sl.registerLazySingleton(() => SignOut(authRepository: sl<AuthRepository>()));
+    // Usecases
+    sl.registerLazySingleton(() => SignInWithGoogle(authRepository: sl<AuthRepository>()));
+    sl.registerLazySingleton(() => SignOut(authRepository: sl<AuthRepository>()));
+
+    // Bloc
+    sl.registerFactory<AuthBloc>(() => AuthBloc(signInWithGoogle: sl(), signOut: sl()));
+  }
 }

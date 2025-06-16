@@ -11,6 +11,7 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
 
   AuthBloc({required this.signInWithGoogle, required this.signOut}) : super(AuthInitial()) {
     on<AuthSignInWithGoogle>(_onAuthSignInWithGoogle);
+    on<AuthSignOut>(_onAuthSignOut);
   }
 
   Future<void> _onAuthSignInWithGoogle(AuthSignInWithGoogle event, Emitter<AuthState> emit) async {
@@ -22,6 +23,19 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
       emit(Authenticated(user));
     } on Exception catch (e, stack) {
       AppLogger.error('[AUTH BLOC] SignInWithGoogle failed', e, stack);
+      emit(AuthError(e.toString()));
+    }
+  }
+
+  Future<void> _onAuthSignOut(AuthSignOut event, Emitter<AuthState> emit) async {
+    emit(AuthLoading());
+    try {
+      AppLogger.info('[AUTH BLOC] SignOut requested');
+      await signOut();
+      AppLogger.info('[AUTH BLOC] User signed out');
+      emit(const Unauthenticated());
+    } on Exception catch (e, stack) {
+      AppLogger.error('[AUTH BLOC] SignOut failed', e, stack);
       emit(AuthError(e.toString()));
     }
   }
