@@ -4,7 +4,6 @@ import 'package:worktracker/core/di/injection_container.dart';
 import 'package:worktracker/core/routes/app_router.dart';
 import 'package:worktracker/core/utils/constants/strings.dart';
 import 'package:worktracker/core/utils/theme/theme.dart';
-import 'package:worktracker/features/auth/presentation/bloc/auth_bloc.dart';
 import 'package:worktracker/shared/blocs/connectivity_bloc/connectivity_bloc.dart';
 import 'package:worktracker/shared/widgets/connectivity_listener_widget.dart';
 
@@ -15,9 +14,6 @@ class WorkTrackerApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MultiBlocProvider(
       providers: [
-        BlocProvider<AuthBloc>(
-          create: (_) => sl<AuthBloc>(),
-        ),
         BlocProvider<ConnectivityBloc>(
           create: (_) => sl<ConnectivityBloc>(),
         ),

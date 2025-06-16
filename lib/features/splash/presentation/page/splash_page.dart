@@ -1,9 +1,12 @@
+import 'dart:io';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:worktracker/core/di/injection_container.dart';
 import 'package:worktracker/core/routes/app_navigator.dart';
 import 'package:worktracker/core/routes/routes_name.dart';
+import 'package:worktracker/core/services/url_launcher_service.dart';
 import 'package:worktracker/core/utils/constants/strings.dart';
 import 'package:worktracker/core/utils/constants/vectors.dart';
 import 'package:worktracker/core/utils/logging/logger.dart';
@@ -26,7 +29,6 @@ class SplashPage extends StatelessWidget {
           BlocListener<ConnectivityBloc, ConnectivityState>(
             listener: (context, state) {
               if (state is ConnectivityConnected) {
-                // context.read<SplashBloc>().add(const CheckSignedInUser());
                 context.read<SplashBloc>().add(const CheckAppVersion());
               }
             },
@@ -34,28 +36,40 @@ class SplashPage extends StatelessWidget {
           BlocListener<SplashBloc, SplashState>(
             listener: (context, state) {
               if (state is AppVersionUpToDate) {
-                /* TODO: Maybe we have to check maintenance or not first */
-                context.read<SplashBloc>().add(const CheckSignedInUser());
+                context.read<SplashBloc>().add(const CheckMaintenance());
               } else if (state is AppVersionOutdated) {
                 AppDialogWidget.show(
                   isDismissible: false,
                   context: AppNavigator.navigationKey.currentContext!,
                   vectorImagePath: AppVectors.update,
                   title: 'Versi Terbaru Tersedia',
-                  message: 'Silahkan perbarui aplikasi ke versi terbaru untuk melanjutkan.',
+                  message:
+                      'Silahkan perbarui aplikasi ke versi terbaru untuk melanjutkan.',
                   confirmText: 'Perbarui Sekarang',
                   onConfirm: () async {
-                    /* TODO: Go to playstore / appstore */
-                    AppLogger.info('[SPLASH PAGE | LISTENER] Go to playstore / appstore');
+                    AppLogger.info(
+                        '[SPLASH PAGE | LISTENER] Go to playstore / appstore');
+
+                    String url = '';
+
+                    if (Platform.isAndroid) {
+                      url = state.androidPlayStoreUrl;
+                    } else if (Platform.isIOS) {
+                      url = state.iOSAppStoreUrl;
+                    }
+
+                    final urlLauncherService = sl<UrlLauncherService>();
+                    await urlLauncherService.openUrl(url);
                   },
                 );
+              } else if (state is AppMaintenance) {
+                AppNavigator.goTo(context, RoutesName.maintenance);
               } else if (state is UserSignedIn) {
+                /* TODO: navigate to home */
               } else if (state is UserNotSignedIn) {
                 AppNavigator.goTo(context, RoutesName.signIn);
               } else if (state is SplashError) {
-                ScaffoldMessenger.of(context).showSnackBar(
-                  SnackBar(content: Text('Error: ${state.message}')),
-                );
+                /* TODO: show dialog */
               }
             },
           ),

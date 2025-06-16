@@ -4,5 +4,6 @@ abstract class SplashRepository {
   String getAppLatestVersion();
   String getAndroidPlayStoreUrl();
   String getiOSAppStoreUrl();
+  bool getMaintenanceStatus();
   Future<UserEntity?> getSignedInUser();
 }

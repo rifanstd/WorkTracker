@@ -11,7 +11,9 @@ class AppButtonTheme {
       backgroundColor: AppColors.dark,
       disabledForegroundColor: AppColors.darkGrey,
       disabledBackgroundColor: AppColors.buttonDisabled,
-      padding: const EdgeInsets.symmetric(vertical: 18, horizontal: 24),
+      padding: const EdgeInsets.symmetric(horizontal: 24),
+      minimumSize: const Size(double.infinity, 50),
+      maximumSize: const Size(double.infinity, 50),
       textStyle: const TextStyle(
         fontSize: 16,
         color: AppColors.textWhite,
@@ -31,7 +33,9 @@ class AppButtonTheme {
       disabledForegroundColor: AppColors.darkGrey,
       disabledBackgroundColor: AppColors.darkerGrey,
       side: const BorderSide(color: AppColors.primary),
-      padding: const EdgeInsets.symmetric(vertical: 18),
+      padding: const EdgeInsets.symmetric(horizontal: 24),
+      minimumSize: const Size(double.infinity, 50),
+      maximumSize: const Size(double.infinity, 50),
       textStyle: const TextStyle(
         fontSize: 16,
         color: AppColors.textWhite,

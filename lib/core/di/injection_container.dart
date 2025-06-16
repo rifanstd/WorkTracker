@@ -8,6 +8,7 @@ import 'package:worktracker/core/services/auth_service.dart';
 import 'package:worktracker/core/services/firestore_service.dart';
 import 'package:worktracker/core/services/remote_config_service.dart';
 import 'package:worktracker/core/services/storage_service.dart';
+import 'package:worktracker/core/services/url_launcher_service.dart';
 import 'package:worktracker/features/auth/auth_injection.dart';
 import 'package:worktracker/features/splash/splash_injection.dart';
 import 'package:worktracker/shared/blocs/connectivity_bloc/connectivity_bloc.dart';
@@ -22,14 +23,19 @@ Future<void> initDependencies() async {
   sl.registerLazySingleton<FirebaseAuth>(() => FirebaseAuth.instance);
   sl.registerLazySingleton<FirebaseFirestore>(() => FirebaseFirestore.instance);
   sl.registerLazySingleton<FirebaseStorage>(() => FirebaseStorage.instance);
-  sl.registerLazySingleton<FirebaseRemoteConfig>(() => FirebaseRemoteConfig.instance);
+  sl.registerLazySingleton<FirebaseRemoteConfig>(
+      () => FirebaseRemoteConfig.instance);
   sl.registerLazySingleton<GoogleSignIn>(GoogleSignIn.new);
 
   // App Services
-  sl.registerLazySingleton<AuthService>(() => AuthService(firebaseAuth: sl(), googleSignIn: sl()));
-  sl.registerLazySingleton<FirestoreService>(() => FirestoreService(firestore: sl()));
+  sl.registerLazySingleton<AuthService>(
+      () => AuthService(firebaseAuth: sl(), googleSignIn: sl()));
+  sl.registerLazySingleton<FirestoreService>(
+      () => FirestoreService(firestore: sl()));
   sl.registerLazySingleton<StorageService>(() => StorageService(storage: sl()));
-  sl.registerLazySingleton<RemoteConfigService>(() => RemoteConfigService(remoteConfig: sl()));
+  sl.registerLazySingleton<RemoteConfigService>(
+      () => RemoteConfigService(remoteConfig: sl()));
+  sl.registerLazySingleton<UrlLauncherService>(UrlLauncherService.new);
 
   // Features
   await initAuthDependencies();

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:worktracker/core/di/injection_container.dart';
 import 'package:worktracker/core/utils/constants/image.dart';
 import 'package:worktracker/core/utils/constants/strings.dart';
 import 'package:worktracker/core/utils/constants/vectors.dart';
@@ -47,7 +48,9 @@ class SignInPage extends StatelessWidget {
                   const SizedBox(height: 32),
                   buildGoogleSignInButton(
                     context: context,
-                    onPressed: () => context.read<AuthBloc>().add(const AuthSignInWithGoogle()),
+                    onPressed: () => context
+                        .read<AuthBloc>()
+                        .add(const AuthSignInWithGoogle()),
                     imagePath: AppImages.google,
                     title: 'Sign In with Google',
                   ),

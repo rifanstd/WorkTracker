@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:worktracker/core/utils/constants/colors.dart';
 
 class AppDialogWidget {
   AppDialogWidget._();
@@ -20,11 +21,14 @@ class AppDialogWidget {
       context: context,
       builder: (context) {
         return Dialog(
+          backgroundColor: AppColors.white,
+          surfaceTintColor: AppColors.white,
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(16),
           ),
           alignment: Alignment.bottomCenter,
-          insetPadding: const EdgeInsets.symmetric(horizontal: 24, vertical: 32),
+          insetPadding:
+              const EdgeInsets.symmetric(horizontal: 24, vertical: 32),
           child: SizedBox(
             width: MediaQuery.of(context).size.width,
             child: Padding(

@@ -27,10 +27,19 @@ class AppVersionOutdated extends SplashState {
   final String iOSAppStoreUrl;
 
   const AppVersionOutdated(
-      {required this.version, required this.androidPlayStoreUrl, required this.iOSAppStoreUrl});
+      {required this.version,
+      required this.androidPlayStoreUrl,
+      required this.iOSAppStoreUrl});
 
   @override
   List<Object?> get props => [version];
+}
+
+class AppMaintenance extends SplashState {
+  const AppMaintenance();
+
+  @override
+  List<Object?> get props => [];
 }
 
 class UserSignedIn extends SplashState {

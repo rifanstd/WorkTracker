@@ -20,3 +20,10 @@ class CheckAppVersion extends SplashEvent {
   @override
   List<Object?> get props => [];
 }
+
+class CheckMaintenance extends SplashEvent {
+  const CheckMaintenance();
+
+  @override
+  List<Object?> get props => [];
+}
