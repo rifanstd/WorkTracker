@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/svg.dart';
-import 'package:worktracker/core/di/injection_container.dart';
 import 'package:worktracker/core/utils/constants/image.dart';
 import 'package:worktracker/core/utils/constants/strings.dart';
 import 'package:worktracker/core/utils/constants/vectors.dart';
 import 'package:worktracker/features/auth/presentation/bloc/auth_bloc.dart';
 import 'package:worktracker/features/auth/presentation/bloc/auth_event.dart';
+import 'package:worktracker/shared/widgets/app_dialog_widget.dart';
 
 class SignInPage extends StatelessWidget {
   const SignInPage({super.key});
@@ -57,7 +57,9 @@ class SignInPage extends StatelessWidget {
                   const SizedBox(height: 8),
                   buildGoogleSignInButton(
                     context: context,
-                    onPressed: () {},
+                    onPressed: () {
+                      AppDialogWidget.showFeatureNotAvailable(context);
+                    },
                     imagePath: AppImages.apple,
                     title: 'Sign In with Apple',
                   ),

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:worktracker/core/utils/constants/colors.dart';
+import 'package:worktracker/core/utils/constants/vectors.dart';
 
 class AppDialogWidget {
   AppDialogWidget._();
@@ -32,7 +33,7 @@ class AppDialogWidget {
           child: SizedBox(
             width: MediaQuery.of(context).size.width,
             child: Padding(
-              padding: const EdgeInsets.all(24.0),
+              padding: const EdgeInsets.all(8),
               child: Column(
                 mainAxisSize: MainAxisSize.min,
                 children: [
@@ -76,6 +77,17 @@ class AppDialogWidget {
           ),
         );
       },
+    );
+  }
+
+  static Future<void> showFeatureNotAvailable(BuildContext context) async {
+    await show(
+      isDismissible: true,
+      context: context,
+      vectorImagePath: AppVectors.development,
+      title: 'Segera Hadir!',
+      message:
+          'Kami sedang mengembangkan fitur ini untuk pengalaman yang lebih baik. Nantikan ya!',
     );
   }
 }
