@@ -6,7 +6,7 @@ import 'package:worktracker/core/utils/constants/strings.dart';
 import 'package:worktracker/core/utils/constants/vectors.dart';
 import 'package:worktracker/features/auth/presentation/bloc/auth_bloc.dart';
 import 'package:worktracker/features/auth/presentation/bloc/auth_event.dart';
-import 'package:worktracker/shared/widgets/app_dialog_widget.dart';
+import 'package:worktracker/shared/presentation/widgets/app_dialog_widget.dart';
 
 class SignInPage extends StatelessWidget {
   const SignInPage({super.key});

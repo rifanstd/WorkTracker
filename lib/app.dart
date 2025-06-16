@@ -5,8 +5,8 @@ import 'package:worktracker/core/routes/app_router.dart';
 import 'package:worktracker/core/utils/constants/strings.dart';
 import 'package:worktracker/core/utils/theme/theme.dart';
 import 'package:worktracker/features/auth/presentation/bloc/auth_bloc.dart';
-import 'package:worktracker/shared/blocs/connectivity_bloc/connectivity_bloc.dart';
-import 'package:worktracker/shared/widgets/connectivity_listener_widget.dart';
+import 'package:worktracker/shared/presentation/blocs/connectivity_bloc/connectivity_bloc.dart';
+import 'package:worktracker/shared/presentation/widgets/connectivity_listener_widget.dart';
 
 class WorkTrackerApp extends StatelessWidget {
   const WorkTrackerApp({super.key});

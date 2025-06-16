@@ -1,5 +1,5 @@
 import 'package:worktracker/features/splash/domain/repositories/splash_repository.dart';
-import 'package:worktracker/shared/entities/user_entity.dart';
+import 'package:worktracker/shared/domain/entities/user_entity.dart';
 
 class GetSignedUser {
   final SplashRepository splashRepository;

@@ -11,7 +11,7 @@ import 'package:worktracker/core/services/storage_service.dart';
 import 'package:worktracker/core/services/url_launcher_service.dart';
 import 'package:worktracker/features/auth/auth_injection.dart';
 import 'package:worktracker/features/splash/splash_injection.dart';
-import 'package:worktracker/shared/blocs/connectivity_bloc/connectivity_bloc.dart';
+import 'package:worktracker/shared/presentation/blocs/connectivity_bloc/connectivity_bloc.dart';
 
 final sl = GetIt.instance;
 

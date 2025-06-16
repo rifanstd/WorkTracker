@@ -3,8 +3,8 @@ import 'dart:async';
 import 'package:connectivity_plus/connectivity_plus.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:worktracker/core/utils/logging/logger.dart';
-import 'package:worktracker/shared/blocs/connectivity_bloc/connectivity_event.dart';
-import 'package:worktracker/shared/blocs/connectivity_bloc/connectivity_state.dart';
+import 'package:worktracker/shared/presentation/blocs/connectivity_bloc/connectivity_event.dart';
+import 'package:worktracker/shared/presentation/blocs/connectivity_bloc/connectivity_state.dart';
 
 class ConnectivityBloc extends Bloc<ConnectivityEvent, ConnectivityState> {
   final Connectivity _connectivity = Connectivity();
@@ -12,7 +12,8 @@ class ConnectivityBloc extends Bloc<ConnectivityEvent, ConnectivityState> {
 
   ConnectivityBloc() : super(ConnectivityInitial()) {
     AppLogger.info('[CONNECTIVITY BLOC] ConnectivityBloc initialized');
-    _connectivitySubscription = _connectivity.onConnectivityChanged.listen(_updateConnectionStatus);
+    _connectivitySubscription =
+        _connectivity.onConnectivityChanged.listen(_updateConnectionStatus);
 
     on<ConnectivityChanged>((event, emit) async {
       final connectivityResults = event.connectivityResults;
@@ -23,8 +24,10 @@ class ConnectivityBloc extends Bloc<ConnectivityEvent, ConnectivityState> {
         AppLogger.error('[CONNECTIVITY BLOC] No connectivity detected');
         emit(ConnectivityDisconnected());
       } else {
-        AppLogger.info('[CONNECTIVITY BLOC] Connectivity detected: ${connectivityResults.join(', ')}');
-        final connectionType = connectivityResults.first.toString().split('.').last;
+        AppLogger.info(
+            '[CONNECTIVITY BLOC] Connectivity detected: ${connectivityResults.join(', ')}');
+        final connectionType =
+            connectivityResults.first.toString().split('.').last;
         emit(
           ConnectivityConnected(
             connectivityResults: connectivityResults,

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:worktracker/core/di/injection_container.dart';
-import 'package:worktracker/shared/blocs/connectivity_bloc/connectivity_bloc.dart';
-import 'package:worktracker/shared/blocs/connectivity_bloc/connectivity_state.dart';
+import 'package:worktracker/shared/presentation/blocs/connectivity_bloc/connectivity_bloc.dart';
+import 'package:worktracker/shared/presentation/blocs/connectivity_bloc/connectivity_state.dart';
 
 class ConnectivityHelper {
   ConnectivityHelper._();

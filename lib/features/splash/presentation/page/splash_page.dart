@@ -13,9 +13,9 @@ import 'package:worktracker/core/utils/logging/logger.dart';
 import 'package:worktracker/features/splash/presentation/bloc/splash_bloc.dart';
 import 'package:worktracker/features/splash/presentation/bloc/splash_event.dart';
 import 'package:worktracker/features/splash/presentation/bloc/splash_state.dart';
-import 'package:worktracker/shared/blocs/connectivity_bloc/connectivity_bloc.dart';
-import 'package:worktracker/shared/blocs/connectivity_bloc/connectivity_state.dart';
-import 'package:worktracker/shared/widgets/app_dialog_widget.dart';
+import 'package:worktracker/shared/presentation/blocs/connectivity_bloc/connectivity_bloc.dart';
+import 'package:worktracker/shared/presentation/blocs/connectivity_bloc/connectivity_state.dart';
+import 'package:worktracker/shared/presentation/widgets/app_dialog_widget.dart';
 
 class SplashPage extends StatelessWidget {
   const SplashPage({super.key});

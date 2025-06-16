@@ -4,9 +4,9 @@ import 'package:go_router/go_router.dart';
 import 'package:worktracker/core/routes/app_navigator.dart';
 import 'package:worktracker/core/routes/routes_name.dart';
 import 'package:worktracker/core/utils/constants/vectors.dart';
-import 'package:worktracker/shared/blocs/connectivity_bloc/connectivity_bloc.dart';
-import 'package:worktracker/shared/blocs/connectivity_bloc/connectivity_state.dart';
-import 'package:worktracker/shared/widgets/app_dialog_widget.dart';
+import 'package:worktracker/shared/presentation/blocs/connectivity_bloc/connectivity_bloc.dart';
+import 'package:worktracker/shared/presentation/blocs/connectivity_bloc/connectivity_state.dart';
+import 'package:worktracker/shared/presentation/widgets/app_dialog_widget.dart';
 
 class ConnectivityListenerWidget extends StatelessWidget {
   final Widget child;
@@ -27,11 +27,13 @@ class ConnectivityListenerWidget extends StatelessWidget {
           );
         } else if (state is ConnectivityConnected) {
           final isSplashPage =
-              GoRouter.of(AppNavigator.navigationKey.currentContext!).namedLocation(RoutesName.splash) ==
+              GoRouter.of(AppNavigator.navigationKey.currentContext!)
+                      .namedLocation(RoutesName.splash) ==
                   RoutesName.splash;
 
           if (isSplashPage) {
-            Navigator.of(AppNavigator.navigationKey.currentContext!).popUntil((route) => route.isFirst);
+            Navigator.of(AppNavigator.navigationKey.currentContext!)
+                .popUntil((route) => route.isFirst);
           } else {
             AppNavigator.pop(context);
           }

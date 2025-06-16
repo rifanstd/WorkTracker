@@ -1,5 +1,5 @@
 import 'package:equatable/equatable.dart';
-import 'package:worktracker/shared/entities/user_entity.dart';
+import 'package:worktracker/shared/domain/entities/user_entity.dart';
 
 abstract class SplashState extends Equatable {
   const SplashState();
