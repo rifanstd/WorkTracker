@@ -28,4 +28,19 @@ class AuthRepositoryImpl implements AuthRepository {
   Future<void> signOut() async {
     await authService.signOut();
   }
+
+  @override
+  Future<UserEntity?> getSignedUser() async {
+    final user = await authService.getSignedInUser();
+    if (user == null) {
+      return null;
+    }
+
+    return UserEntity(
+      uid: user.uid,
+      email: user.email ?? '',
+      name: user.displayName ?? '',
+      photoUrl: user.photoURL ?? '',
+    );
+  }
 }
