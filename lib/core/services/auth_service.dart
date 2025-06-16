@@ -30,8 +30,7 @@ class AuthService {
         idToken: googleAuth.idToken,
       );
 
-      final userCredential =
-          await firebaseAuth.signInWithCredential(credential);
+      final userCredential = await firebaseAuth.signInWithCredential(credential);
 
       AppLogger.info(
         '[AUTH SERVICE] Google Sign-In successful: UID => ${userCredential.user?.uid}',
@@ -47,6 +46,7 @@ class AuthService {
   Future<void> signOut() async {
     try {
       await googleSignIn.signOut();
+      await googleSignIn.disconnect();
       await firebaseAuth.signOut();
       AppLogger.info('[AUTH SERVICE] User signed out');
     } catch (e, stack) {
@@ -58,8 +58,7 @@ class AuthService {
   Future<User?> getSignedInUser() async {
     try {
       if (currentUser != null) {
-        AppLogger.info(
-            '[AUTH SERVICE] Signed-in user: UID => ${currentUser?.uid}');
+        AppLogger.info('[AUTH SERVICE] Signed-in user: UID => ${currentUser?.uid}');
       } else {
         AppLogger.warn('[AUTH SERVICE] No user currently signed in');
       }
