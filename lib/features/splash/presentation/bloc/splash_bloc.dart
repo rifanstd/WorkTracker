@@ -68,7 +68,6 @@ class SplashBloc extends Bloc<SplashEvent, SplashState> {
     CheckMaintenance event,
     Emitter<SplashState> emit,
   ) async {
-    emit(SplashLoading());
     try {
       AppLogger.info('[SPLASH BLOC] CheckMaintenance');
       final isMaintenance = getMaintenanceStatus();
@@ -89,7 +88,6 @@ class SplashBloc extends Bloc<SplashEvent, SplashState> {
     CheckSignedInUser event,
     Emitter<SplashState> emit,
   ) async {
-    emit(SplashLoading());
     try {
       AppLogger.info('[SPLASH BLOC] AuthCheckRequested');
       final user = await getSignedUser();
