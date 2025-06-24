@@ -2,10 +2,11 @@ import 'dart:io';
 import 'package:firebase_storage/firebase_storage.dart';
 import 'package:worktracker/core/utils/logging/logger.dart';
 
-class StorageService {
+class FirebaseStorageService {
   final FirebaseStorage _storage;
 
-  StorageService({required FirebaseStorage storage}) : _storage = storage;
+  FirebaseStorageService({required FirebaseStorage storage})
+      : _storage = storage;
 
   Future<String> uploadFile({
     required String path,

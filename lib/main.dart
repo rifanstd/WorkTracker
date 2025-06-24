@@ -7,7 +7,7 @@ import 'package:flutter/services.dart';
 import 'package:worktracker/app.dart';
 import 'package:worktracker/core/di/injection_container.dart' as sl;
 import 'package:worktracker/core/error/global_error_handler.dart';
-import 'package:worktracker/core/services/remote_config_service.dart';
+import 'package:worktracker/core/services/firebase_remote_config_service.dart';
 import 'package:worktracker/firebase_options.dart';
 
 void configureStatusBar() {
@@ -36,7 +36,7 @@ void main() {
 
       GlobalErrorHandler.initialize();
 
-      await sl.sl<RemoteConfigService>().init();
+      await sl.sl<FirebaseRemoteConfigService>().init();
 
       configureStatusBar();
       runApp(const WorkTrackerApp());

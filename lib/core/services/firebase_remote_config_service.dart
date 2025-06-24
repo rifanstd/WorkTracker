@@ -1,10 +1,11 @@
 import 'package:firebase_remote_config/firebase_remote_config.dart';
 import 'package:worktracker/core/utils/logging/logger.dart';
 
-class RemoteConfigService {
+class FirebaseRemoteConfigService {
   final FirebaseRemoteConfig _remoteConfig;
 
-  RemoteConfigService({required FirebaseRemoteConfig remoteConfig}) : _remoteConfig = remoteConfig;
+  FirebaseRemoteConfigService({required FirebaseRemoteConfig remoteConfig})
+      : _remoteConfig = remoteConfig;
 
   Future<void> init({Duration fetchInterval = Duration.zero}) async {
     try {

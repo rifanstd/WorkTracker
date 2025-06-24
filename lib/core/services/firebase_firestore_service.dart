@@ -1,10 +1,10 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:worktracker/core/utils/logging/logger.dart';
 
-class FirestoreService {
+class FirebaseFirestoreService {
   final FirebaseFirestore _firestore;
 
-  FirestoreService({required FirebaseFirestore firestore})
+  FirebaseFirestoreService({required FirebaseFirestore firestore})
       : _firestore = firestore;
 
   CollectionReference<Map<String, dynamic>> collection(String path) {
