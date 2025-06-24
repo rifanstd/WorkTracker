@@ -1,6 +1,6 @@
 import 'package:worktracker/core/di/injection_container.dart';
 import 'package:worktracker/features/auth/domain/repositories/auth_repository.dart';
-import 'package:worktracker/features/auth/domain/usecases/get_signed_user.dart';
+import 'package:worktracker/features/auth/domain/usecases/get_signed_in_user.dart';
 import 'package:worktracker/features/splash/data/repositories/splash_repository_impl.dart';
 import 'package:worktracker/features/splash/domain/repositories/splash_repository.dart';
 import 'package:worktracker/features/splash/domain/usecases/get_android_play_store_url.dart';
@@ -21,11 +21,16 @@ class SplashInjection {
     );
 
     // Usecases
-    sl.registerLazySingleton(() => GetAppLatestVersion(splashRepository: sl<SplashRepository>()));
-    sl.registerLazySingleton(() => GetAndroidPlayStoreUrl(splashRepository: sl<SplashRepository>()));
-    sl.registerLazySingleton(() => GetiOSAppStoreUrl(splashRepository: sl<SplashRepository>()));
-    sl.registerLazySingleton(() => GetSignedUser(authRepository: sl<AuthRepository>()));
-    sl.registerLazySingleton(() => GetMaintenanceStatus(splashRepository: sl<SplashRepository>()));
+    sl.registerLazySingleton(
+        () => GetAppLatestVersion(splashRepository: sl<SplashRepository>()));
+    sl.registerLazySingleton(
+        () => GetAndroidPlayStoreUrl(splashRepository: sl<SplashRepository>()));
+    sl.registerLazySingleton(
+        () => GetiOSAppStoreUrl(splashRepository: sl<SplashRepository>()));
+    sl.registerLazySingleton(
+        () => GetSignedInUser(authRepository: sl<AuthRepository>()));
+    sl.registerLazySingleton(
+        () => GetMaintenanceStatus(splashRepository: sl<SplashRepository>()));
 
     // Bloc
     sl.registerFactory<SplashBloc>(

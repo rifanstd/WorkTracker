@@ -14,12 +14,13 @@ class FirebaseAuthService {
 
   Future<UserCredential> signInWithGoogle() async {
     try {
-      AppLogger.info('[AUTH SERVICE] Starting Google Sign-In');
+      AppLogger.info('[FIREBASE AUTH SERVICE] Starting Google Sign-In');
 
       final googleUser = await googleSignIn.signIn();
 
       if (googleUser == null) {
-        AppLogger.warn('[AUTH SERVICE] Google Sign-In cancelled by user');
+        AppLogger.warn(
+            '[FIREBASE AUTH SERVICE] Google Sign-In cancelled by user');
         throw Exception('Google Sign-In cancelled');
       }
 
@@ -34,12 +35,13 @@ class FirebaseAuthService {
           await firebaseAuth.signInWithCredential(credential);
 
       AppLogger.info(
-        '[AUTH SERVICE] Google Sign-In successful: UID => ${userCredential.user?.uid}',
+        '[FIREBASE AUTH SERVICE] Google Sign-In successful: UID => ${userCredential.user?.uid}',
       );
 
       return userCredential;
     } catch (e, stack) {
-      AppLogger.error('[AUTH SERVICE] Google Sign-In failed', e, stack);
+      AppLogger.error(
+          '[FIREBASE AUTH SERVICE] Google Sign-In failed', e, stack);
       rethrow;
     }
   }
@@ -48,9 +50,9 @@ class FirebaseAuthService {
     try {
       await googleSignIn.signOut();
       await firebaseAuth.signOut();
-      AppLogger.info('[AUTH SERVICE] User signed out');
+      AppLogger.info('[FIREBASE AUTH SERVICE] User signed out');
     } catch (e, stack) {
-      AppLogger.error('[AUTH SERVICE] Sign-Out failed', e, stack);
+      AppLogger.error('[FIREBASE AUTH SERVICE] Sign-Out failed', e, stack);
       rethrow;
     }
   }
@@ -59,13 +61,14 @@ class FirebaseAuthService {
     try {
       if (currentUser != null) {
         AppLogger.info(
-            '[AUTH SERVICE] Signed-in user: UID => ${currentUser?.uid}');
+            '[FIREBASE AUTH SERVICE] Signed-in user: UID => ${currentUser?.uid}');
       } else {
-        AppLogger.warn('[AUTH SERVICE] No user currently signed in');
+        AppLogger.warn('[FIREBASE AUTH SERVICE] No user currently signed in');
       }
       return currentUser;
     } catch (e, stack) {
-      AppLogger.error('[AUTH SERVICE] Failed to get signed-in user', e, stack);
+      AppLogger.error(
+          '[FIREBASE AUTH SERVICE] Failed to get signed-in user', e, stack);
       rethrow;
     }
   }
